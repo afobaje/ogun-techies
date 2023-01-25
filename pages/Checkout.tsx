@@ -12,7 +12,7 @@ export default function Checkout() {
     let { setTotal, total, setCart } = useContext(storeVault)
     let totalToNaira = total * 100;
     const paystackPublicKey=process.env.PAYSTACK
-    // const paystackPublicKey = `pk_test_a3644451a29f162a0a8935c07dbe376382a99be1`;
+    
 
     
     console.log('wtf',paystackPublicKey)
