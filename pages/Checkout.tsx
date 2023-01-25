@@ -11,8 +11,12 @@ import Modal from '../Components/Modal';
 export default function Checkout() {
     let { setTotal, total, setCart } = useContext(storeVault)
     let totalToNaira = total * 100;
-    const paystackPublicKey = `pk_test_a3644451a29f162a0a8935c07dbe376382a99be1`;
-    const config = {
+    const paystackPublicKey=process.env.PAYSTACK
+    // const paystackPublicKey = `pk_test_a3644451a29f162a0a8935c07dbe376382a99be1`;
+
+    
+    console.log('wtf',paystackPublicKey)
+    const config:any = {
         reference: (new Date()).getTime().toString(),
         email: 'afobajedavid@gmail.com',
         amount: totalToNaira,
