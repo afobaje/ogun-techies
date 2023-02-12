@@ -147,6 +147,7 @@ export default function About() {
                 </ul>
               </div>
             </div>
+           
             <div className="membercard flex p-3 flex-col w-1/5">
               <Image src={chimy} alt="chimy" />
               <div className="profile flex flex-col justify-evenly mt-4 items-start">

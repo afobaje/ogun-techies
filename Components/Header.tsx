@@ -30,11 +30,11 @@ export default function Header() {
   }, [fixedHeader, clientHeight]);
 
   return (
-    <header className="block w-full md:max-w-7xl">
+    <header className="block w-full ">
       <div
         ref={measuredRef}
-        className={`flex px-12 justify-between ${fixedHeader
-          ? "fixed w-11/12 transition-all  duration-500 mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 shadow shadow-slate-300 bg-white rounded-full"
+        className={`flex px-12 justify-between duration-200 transition-all  ${fixedHeader
+          ? "fixed w-11/12 mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 shadow shadow-slate-300 bg-white rounded-full"
           : "w-full py-6"
           } `}
       >
@@ -67,17 +67,17 @@ export default function Header() {
           <button onClick={() => {
             setHiddenNav(!hiddenNav)
           }} className={`md:hidden flex w-6 flex-col-reverse rotate-180 mt-2 h-5 justify-between  `}>
-            <div className={`border-black border rounded-md w-4 ${hiddenNav ? 'rotate-45 transition-all duration-200 translate-x-1.5 -translate-y-2.5 ease-in-out' : ''}`}></div>
-            <div className={`border-black border rounded-md w-6 ${hiddenNav ? 'hidden duration-200' : ''}`}></div>
-            <div className={`border-black border rounded-md w-4 ${hiddenNav ? '-rotate-45 transition-all translate-y-2 translate-x-1.5 ease-out duration-200' : ''} `}></div>
+            <div className={`border-black border rounded-md w-4 transition-all duration-200 ${hiddenNav ? 'rotate-45 translate-x-1.5 -translate-y-2.5 ease-in-out' : ''}`}></div>
+            <div className={`border-black border rounded-md w-6 duration-200 ${hiddenNav ? 'hidden ' : ''}`}></div>
+            <div className={`border-black border rounded-md w-4 transition-all duration-200 ${hiddenNav ? '-rotate-45  translate-y-2 translate-x-1.5 ease-out ' : ''} `}></div>
           </button>
         </nav>
-        <nav className={`md:hidden rounded-xl ${hiddenNav ? 'bg-white' : 'hidden'}  opacity-90 z-50 left-4 top-20 absolute h-72  w-11/12 flex `}>
-          <ul className={`${hiddenNav ? 'flex' : 'hidden'}  flex-col z-50 justify-evenly h-full ml-20  w-full items-start`}>
-            <li className="font-semibold active:text-green-400 hover:text-green-400 text-lg"><Link href='/About' onClick={() => setHiddenNav(!hiddenNav)}>About</Link></li>
-            <li className="font-semibold active:text-green-400 hover:text-green-400 text-lg"><Link href='/Blog' onClick={() => setHiddenNav(!hiddenNav)}>Blog</Link></li>
-            <li className="font-semibold active:text-green-400 hover:text-green-400 text-lg"><Link href='/Merch' onClick={() => setHiddenNav(!hiddenNav)}>Merch</Link></li>
-            <li className="font-semibold active:text-green-400 hover:text-green-400 text-lg"><Link href='/Contact' onClick={() => setHiddenNav(!hiddenNav)}>Join us</Link></li>
+        <nav className={`md:hidden rounded-xl ${hiddenNav ? 'bg-white' : 'hidden'}  z-50 left-4 top-20 absolute h-72  w-11/12 flex `}>
+          <ul className={`${hiddenNav ? 'flex' : 'hidden'}  flex-col z-50 justify-evenly h-full  w-full items-center`}>
+            <li className=" font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/About' onClick={() => setHiddenNav(!hiddenNav)}>About</Link></li>
+            <li className="font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/Blog' onClick={() => setHiddenNav(!hiddenNav)}>Blog</Link></li>
+            <li className="font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/Merch' onClick={() => setHiddenNav(!hiddenNav)}>Merch</Link></li>
+            <li className="font-medium active:text-green-400 py-2 px-4 text-green-400 border-green-400 border rounded-lg border-solid hover:text-green-400 text-lg"><Link href='/Contact' onClick={() => setHiddenNav(!hiddenNav)}>Join us</Link></li>
           </ul>
         </nav>
       </div>

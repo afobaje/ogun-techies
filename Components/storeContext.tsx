@@ -93,8 +93,36 @@ export default function StoreContext({children}:any) {
           ProductName: "Water bottle",
         },
       ]);
+
+      const [news] = useState([
+        {
+        content:1,
+        img:mug,
+        title:'this is my way of saying hello jelo'
+      },
+      {
+        content:2,
+        img:mug,
+        title:'this is my way of saying hello jelo'
+      },
+      {
+        content:3,
+        img:mug,
+        title:'this is my way of saying hello jelo'
+      },
+      {
+        content:4,
+        img:mug,
+        title:'this is my way of saying hello jelo'
+      },
+      {
+        content:5,
+        img:mug,
+        title:'this is my way of saying hello jelo'
+      }
+    ])
   return (
-    <storeVault.Provider value={{store,cart,setCart,total,setTotal}}>
+    <storeVault.Provider value={{store,cart,news,setCart,total,setTotal}}>
         {children}
     </storeVault.Provider>
   )

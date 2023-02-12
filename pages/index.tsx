@@ -13,8 +13,10 @@ import smallarc from './../public/assets/Unionsmall.svg'
 import Link from "next/link";
 
 
-export default function Home() {
+export default function Home({ data }: any) {
+  
 
+  
   return (
     <div className="flex  flex-col ">
       <section className="mb-10 w-full">
@@ -31,8 +33,7 @@ export default function Home() {
               <h1 className="lg:py-8 font-bold text-center sm:text-4xl sm:mx-0  mx-auto lg:text-5xl md:text-center lg:text-start text-2xl mt-4 lg:leading-tight md:text-4xl  mb-4 leading-snug md:leading-normal px-4 ">The Home of <br className="md:hidden lg:inline" /> Ogun's Tech <br /> Enthusiasts</h1>
               <p className="text-lg lg:py-3 sm:text-center mx-auto  lg:text-xl font-medium text-center lg:text-justify lg:mx-auto ">Rebuilding Ogun state through <br /> technology</p>
               <div className="buttongroup lg:py-3 sm:flex-col mx-auto  md:flex-row flex-col flex">
-                <Link href='/Member' className="py-4 px-6 sm:p-4  md:p-2  text-white sm:mr-2 bg-green-400 border border-green-400 border-solid mt-4 rounded-lg">Become a member</Link>
-                {/* <button className="py-4 px-6 sm:p-4  md:p-2  text-white sm:mr-2 bg-green-400 border border-green-400 border-solid mt-4 rounded-lg">Become a member</button> */}
+                <Link href='/Member' className="py-4 px-6 sm:p-4  md:p-2  text-white md:mr-2 bg-green-400 border border-green-400 border-solid mt-4 rounded-lg">Become a member</Link>
                 <button className="py-4 px-6 sm:p-4 md:p-2  text-green-400 border border-green-400 border-solid mt-4  rounded-lg">Invite others</button>
               </div>
             </div>
@@ -134,7 +135,7 @@ export default function Home() {
       <section className="banner h-[50vh]  md:h-[55vh]  lg:h-[60vh] md:max-w-full lg:mb-10 lg:mt-20  mt-10 flex justify-center items-center">
         <div className="banner-wrapper md:h-4/6  h-4/6 lg:h-full flex justify-evenly w-11/12 m-auto bg-yellow-400 rounded-3xl ">
           <div className="w-1/2 flex justify-center items-center md:items-start flex-col">
-            <div className="md:ml-24">
+            <div className="md:ml-24 items-center flex justify-center text-center flex-col md:items-start md:justify-start md:text-start">
               <h2 className="text-white md:font-semibold leading-tight mb-6 text-2xl md:text-4xl">
                 You're in for a <br className="hidden md:inline" /> treat!
               </h2>
@@ -151,3 +152,10 @@ export default function Home() {
     </div>
   );
 }
+
+
+// export async function getServerSideProps() {
+//   const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts`)
+//   const data = await res.json()
+//   return { props: { data } }
+// }

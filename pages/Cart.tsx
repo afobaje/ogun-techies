@@ -8,7 +8,7 @@ export default function Cart() {
     let { cart, setCart, total, setTotal } = useContext(storeVault)
 
     function Delete(id: any) {
-        setCart(cart.filter((val: any) => val.id != id))
+        setCart(cart.filter((val: any) => val.id !== id))
     }
     let add: any = [];
 
