@@ -14,13 +14,15 @@ export default function Header() {
     }
   }, [clientHeight]);
 
-  const check = () => {
+  const check=useCallback(()=>{
     if (window.pageYOffset > clientHeight) {
       setFixedHeader(true);
     } else {
       setFixedHeader(false);
     }
-  };
+  },[clientHeight])
+
+  
 
   useEffect(() => {
     window.addEventListener("scroll", check);
