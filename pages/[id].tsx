@@ -6,7 +6,7 @@ import { storeVault } from "../Components/storeContext";
 import banner from "./../public/assets/roundedbanner.png";
 
 
-export default function id() {
+export default function Id() {
   const router = useRouter();
   let { id } = router.query;
   let storeValues = useContext(storeVault)

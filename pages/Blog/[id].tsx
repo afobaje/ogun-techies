@@ -7,13 +7,12 @@ export default function Content({ post }: any) {
   let [readtime, setReadTime] = useState(0);
 
   useEffect(() => {
-
     if (article.current) {
       let articleText = article.current?.innerText;
       const words = articleText?.trim().split(/\s+/).length;
       setReadTime(Math.ceil(words / wpm))
     }
-  }, [readtime])
+  }, [readtime,wpm])
 
   
   function createMarkup() {

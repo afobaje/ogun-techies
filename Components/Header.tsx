@@ -12,7 +12,7 @@ export default function Header() {
     if (node !== null) {
       return setClientHeight(node.getBoundingClientRect().height);
     }
-  }, [clientHeight]);
+  }, []);
 
   const check=useCallback(()=>{
     if (window.pageYOffset > clientHeight) {
@@ -20,7 +20,7 @@ export default function Header() {
     } else {
       setFixedHeader(false);
     }
-  },[clientHeight])
+  },[])
 
   
 
@@ -29,7 +29,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", check);
     };
-  }, [fixedHeader, clientHeight]);
+  }, [fixedHeader, clientHeight,check]);
 
   return (
     <header className="block w-full ">
