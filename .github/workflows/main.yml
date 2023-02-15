@@ -1,0 +1,132 @@
+name: 🚀 Build & Deploy App
+on:
+  push:
+    branches: [v3/main]
+
+jobs:
+  build_production:
+    if: ${{ github.repository_owner == 'craxetdevelopers' }}
+    name: Build 🕋 Prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code 🚐🚐
+        uses: actions/checkout@v2
+
+      - name: Install and Setup Node.JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Build Production App
+        run: npm run build:production --if-present
+
+      # - name: Create deployable artifacts
+      #   env:
+      #     GITHUB_HASH: ${{github.sha}}
+      #   run: tar -cvzf "${GITHUB_HASH}".tar.gz dist/flaretech/.
+
+      # - name: Archive deployable artifacts for production deployment
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: production-app
+      #     path: ${{github.sha}}.tar.gz
+
+      - name: 📂 Sync and upload files to server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+        with:
+          server: "ftp.flaretechmusic.com"
+          username: "promotion_app@flaretechmusic.com"
+          password: "p9?Qnl@.0Sfj"
+          local-dir: "./dist/flaretech/"
+          server-dir: "./"
+          port: ${{ secrets.FTP_PORT }}
+
+  # deploy_production:
+  #   if: ${{ github.repository_owner == 'craxetdevelopers' }}
+  #   name: Deploy to Production 🔥
+  #   needs: build_production
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Download deployable artifacts from build_production
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: production-app
+
+  #     - name: Unzip downloaded artifacts for deployment
+  #       env:
+  #         GITHUB_HASH: ${{github.sha}}
+  #       run: tar -xvf "${GITHUB_HASH}".tar.gz
+
+  #     - name: 📂 Sync and upload files to server
+  #       uses: SamKirkland/FTP-Deploy-Action@4.3.1
+  #       with:
+  #         server: "ftp.flaretechmusic.com"
+  #         username: "promotion_app@flaretechmusic.com"
+  #         password: "p9?Qnl@.0Sfj"
+  #         local-dir: "./dist/flaretech/"
+  #         server-dir: "./"
+  #         port: ${{ secrets.FTP_PORT }}
+#  build_staging:
+#    if: ${{ github.repository_owner == 'craxetdevelopers' }}
+#    name: Build 🐱 Staging
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Check out repository code 🚐🚐
+#        uses: actions/checkout@v2
+#
+#      - name: Install and Setup Node.JS
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 16.x
+#          cache: "npm"
+#
+#      - name: Install Node Dependecies
+#        run: npm install
+#
+#      - name: Build Staging App
+#        run: npm run build:staging --if-present
+#
+#      - name: Create deployable artifacts for staging
+#        env:
+#          GITHUB_HASH: ${{github.sha}}
+#        run: tar -cvzf "${GITHUB_HASH}"_staging.tar.gz dist/flaretech/*
+#
+#      - name: Archive staging artifacts
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: staging-app
+#          path: ${{github.sha}}_staging.tar.gz
+#
+#  deploy_staging:
+#    if: ${{ github.repository_owner == 'craxetdevelopers' }}
+#    name: Deploy to Staging 🚌
+#    needs: build_staging
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Download staging app from build_staging artifacts
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: staging-app
+#
+#      - name: "Unzip assets"
+#        env:
+#          GITHUB_HASH: ${{github.sha}}
+#        run: tar -xvf "${GITHUB_HASH}"_staging.tar.gz
+#
+#      - name: 📂 Deploy files
+#        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+#        with:
+#          server: ${{ secrets.FTP_HOST }}
+#          username: ${{ secrets.FTP_USERNAME }}
+#          password: ${{ secrets.ftp_password }}
+#          local-dir: "./dist/flaretech/"
+#          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+#          port: ${{ secrets.FTP_PORT }}
