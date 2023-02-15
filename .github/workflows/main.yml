@@ -69,7 +69,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./out/"
           server-dir: "./"
-          port: "21"
+          port: 21
+          dry-run: true
 
   # build_production:
   #   name: Build 🕋 Prod
