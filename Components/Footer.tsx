@@ -77,6 +77,7 @@ export default function Footer() {
             href="https://afobaje.netlify.app"
             className="hover:text-green-400 hover:underline"
             target="_blank"
+            rel="noreferrer"
           >
             Afobaje
           </a>{" "}

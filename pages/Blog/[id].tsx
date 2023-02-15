@@ -7,13 +7,12 @@ export default function Content({ post }: any) {
   let [readtime, setReadTime] = useState(0);
 
   useEffect(() => {
-
     if (article.current) {
       let articleText = article.current?.innerText;
       const words = articleText?.trim().split(/\s+/).length;
       setReadTime(Math.ceil(words / wpm))
     }
-  }, [readtime])
+  }, [readtime,wpm])
 
   
   function createMarkup() {
@@ -87,7 +86,8 @@ export default function Content({ post }: any) {
 
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
+  const res=await fetch(`https://oguntechies.com/wp-json/v2/posts?_embed`)
+  // const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
   const content = await res.json()
   const path = content.map((val: any) => ({
     params: { id: val.slug }
