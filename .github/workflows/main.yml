@@ -5,7 +5,6 @@ on:
 
 jobs:
   build_production:
-    if: ${{ github.repository_owner == 'craxetdevelopers' }}
     name: Build 🕋 Prod
     runs-on: ubuntu-latest
 
