@@ -1,7 +1,7 @@
 name: 🚀 Build & Deploy App
 on:
   push:
-    branches: [v3/main]
+    branches: [main]
 
 jobs:
   build_production:
