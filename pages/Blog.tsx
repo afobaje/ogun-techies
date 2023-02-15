@@ -41,7 +41,8 @@ let [displayFormat,setDisplayFormat]=useState(false)
 
 
 export async function getStaticProps() {
-  const res=await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
+  const res=await fetch(`https://oguntechies.com/mysite/wp-json/v2/posts?_embed`)
+  // const res=await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
   const data=await res.json()
   return { props: { data } }
 }

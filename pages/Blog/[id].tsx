@@ -86,7 +86,8 @@ export default function Content({ post }: any) {
 
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
+  const res=await fetch(`https://oguntechies.com/wp-json/v2/posts?_embed`)
+  // const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
   const content = await res.json()
   const path = content.map((val: any) => ({
     params: { id: val.slug }
