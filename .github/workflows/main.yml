@@ -64,12 +64,12 @@ jobs:
       - name: 📂 Sync and upload files to server
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: "oguntechies.com"
+          server: "ftp.oguntechies.com"
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "./out/"
           server-dir: "./"
-          port: ${{ secrets.FTP_PORT }}
+          port: "21"
 
   # build_production:
   #   name: Build 🕋 Prod
