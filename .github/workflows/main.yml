@@ -4,6 +4,11 @@ on:
     branches: [main, feature/git-ci]
   workflow_dispatch:
 
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   # Build job
   build:
@@ -36,15 +41,6 @@ jobs:
           node-version: "16.x"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v3
-      #   with:
-      #     # Automatically inject basePath in your Next.js configuration file and disable
-      #     # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-      #     #
-      #     # You may remove this line if you want to manage the configuration yourself.
-      #     static_site_generator: next
-
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -65,10 +61,6 @@ jobs:
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v1
-      #   with:
-      #     path: ./out
       - name: 📂 Sync and upload files to server
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
@@ -79,32 +71,32 @@ jobs:
           server-dir: "./"
           port: ${{ secrets.FTP_PORT }}
 
-  build_production:
-    name: Build 🕋 Prod
-    runs-on: ubuntu-latest
+  # build_production:
+  #   name: Build 🕋 Prod
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Check out repository code 🚐🚐
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Check out repository code 🚐🚐
+  #       uses: actions/checkout@v2
 
-      - name: Install and Setup Node.JS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "npm"
+  #     - name: Install and Setup Node.JS
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16.x
+  #         cache: "npm"
 
-      - name: Install Node Dependencies
-        run: npm install
+  #     - name: Install Node Dependencies
+  #       run: npm install
 
-      - name: Build App
-        run: npm run build --if-present
+  #     - name: Build App
+  #       run: npm run build --if-present
 
-      - name: 📂 Sync and upload files to server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.1
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./dist/flaretech/"
-          server-dir: "./"
-          port: ${{ secrets.FTP_PORT }}
+  #     - name: 📂 Sync and upload files to server
+  #       uses: SamKirkland/FTP-Deploy-Action@4.3.1
+  #       with:
+  #         server: ${{ secrets.FTP_HOST }}
+  #         username: ${{ secrets.FTP_USERNAME }}
+  #         password: ${{ secrets.FTP_PASSWORD }}
+  #         local-dir: "./dist/flaretech/"
+  #         server-dir: "./"
+  #         port: ${{ secrets.FTP_PORT }}
