@@ -14,9 +14,9 @@ import Link from "next/link";
 
 
 export default function Home({ data }: any) {
-  
 
-  
+
+
   return (
     <div className="flex  flex-col ">
       <section className="mb-10 w-full">
@@ -139,9 +139,10 @@ export default function Home({ data }: any) {
               <h2 className="text-white md:font-semibold leading-tight mb-6 text-2xl md:text-4xl">
                 You're in for a <br className="hidden md:inline" /> treat!
               </h2>
-              <button className="font-semibold text-xl py-3 text-yellow-400 px-4 md:px-12 bg-white rounded-xl">
+             
+              <Link href='/Member' className="font-semibold text-xl py-3 text-yellow-400 px-4 md:px-12 bg-white rounded-xl">
                 Join us
-              </button>
+              </Link>
             </div>
           </div>
           <div className="hidden md:block md:-mt-10 lg:-mt-20  -mt-24 -mr-10 banner-image w-1/2">
@@ -154,8 +155,3 @@ export default function Home({ data }: any) {
 }
 
 
-// export async function getServerSideProps() {
-//   const res = await fetch(`http://localhost/mysite/wp-json/wp/v2/posts`)
-//   const data = await res.json()
-//   return { props: { data } }
-// }

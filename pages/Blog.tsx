@@ -9,7 +9,7 @@ export default function Blog({data}:any){
   
 const {news}=useContext(storeVault)
 
-let [displayFormat,setDisplayFormat]=useState(false)
+
 
 
   return (
@@ -21,12 +21,8 @@ let [displayFormat,setDisplayFormat]=useState(false)
         <Image src={Banner} className='-z-10' alt='blog banner' />
       </section>
       <section className="flex px-10 flex-col relative">
-        <div className="displayFormat absolute">
-          <button onClick={()=>setDisplayFormat(false)}>Row</button>
-          <button onClick={()=>setDisplayFormat(true)}>Column</button>
-        </div>
         <h2 className='text-center font-bold text-xl py-10'>Latest news</h2>
-        <div className={` ${displayFormat?'flex transition-all duration-300 flex-col':'grid  duration-300 transition-all  sm:grid-cols-2 gap-5 py-4 md:grid-cols-3 '}`}>
+        <div className="grid  sm:grid-cols-2 gap-5 py-4 md:grid-cols-3" >
           {news?.map(({img,title,content}:any, i:any) => <NewsItem key={i} id={content} Img={img} title={title} />)}
         </div>
         <div className="grid  sm:grid-cols-2 gap-5 py-4 md:grid-cols-3 ">
@@ -41,8 +37,7 @@ let [displayFormat,setDisplayFormat]=useState(false)
 
 
 export async function getStaticProps() {
-  const res=await fetch(`https://oguntechies.com/wp-json/wp/v2/posts?_embed`)
-  // const res=await fetch(`http://localhost/mysite/wp-json/wp/v2/posts?_embed`)
+  const res=await fetch(`https://blog.oguntechies.com/wp-json/wp/v2/posts?_embed`)
   const data=await res.json()
   return { props: { data } }
 }

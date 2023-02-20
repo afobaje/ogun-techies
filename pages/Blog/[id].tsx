@@ -86,7 +86,7 @@ export default function Content({ post }: any) {
 
 
 export async function getStaticPaths() {
-  const res=await fetch(`https://oguntechies.com/wp-json/wp/v2/posts?_embed`)
+  const res=await fetch(`https://blog.oguntechies.com/wp-json/wp/v2/posts?_embed`)
   const content = await res.json()
   const path = content.map((val: any) => ({
     params: { id: val.slug }
@@ -96,7 +96,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const res = await fetch(`https://oguntechies.com/wp-json/wp/v2/posts?slug=${params.id}`)
+  const res = await fetch(`https://blog.oguntechies.com/wp-json/wp/v2/posts?slug=${params.id}`)
   const post = await res.json()
   return { props: { post } }
 }
