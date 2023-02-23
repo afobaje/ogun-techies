@@ -9,7 +9,7 @@ import chimy from "./../public/assets/ChimuanyaDike.png";
 
 export default function About() {
   return (
-    <div className="flex flex-col max-w-md md:max-w-full mx-auto">
+    <div className="flex flex-col lg:w-full max-w-md md:max-w-full mx-auto">
       <section className="about-intro relative flex">
         <h1 className="text-3xl top-32 text-white right-2/4 font-bold absolute">
           About Us

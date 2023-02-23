@@ -35,13 +35,13 @@ export default function Header() {
     <header className="block w-full ">
       <div
         ref={measuredRef}
-        className={`flex px-12 justify-between duration-200 transition-all  ${fixedHeader
-          ? "fixed w-11/12 mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 shadow shadow-slate-300 bg-white rounded-full"
+        className={`flex  px-7 justify-between duration-200 transition-all  ${fixedHeader
+          ? "fixed w-11/12  mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 shadow shadow-slate-300 bg-white rounded-full"
           : "w-full py-6"
           } `}
       >
-        <Link href="/" onClick={() => setHiddenNav(false)} className="logo w-1/5 text-2xl">
-          <Image src={Logo} alt="logo" priority />
+        <Link href="/" onClick={() => setHiddenNav(false)} className="logo w-2/5 md:w-1/5 text-2xl">
+          <Image src={Logo} className='' alt="logo" priority />
         </Link>
         <nav className="w-2/5 md:w-3/5 lg:w-2/5 flex flex-row justify-end md:justify-center items-center">
           <ul className="md:flex hidden justify-between w-full">
@@ -60,7 +60,7 @@ export default function Header() {
                 Merch
               </Link>
             </li>
-            <li className="text-green-400 border-solid border py-2 px-4 -mt-2 rounded-lg border-green-400">
+            <li className="text-green-400 hover:text-white hover:bg-green-400  border-solid border py-2 px-4 -mt-2 rounded-lg border-green-400">
               <Link href="/Member" className="font-medium text-base ">
                 Join us
               </Link>
@@ -79,7 +79,7 @@ export default function Header() {
             <li className=" font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/About' onClick={() => setHiddenNav(!hiddenNav)}>About</Link></li>
             <li className="font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/Blog' onClick={() => setHiddenNav(!hiddenNav)}>Blog</Link></li>
             <li className="font-medium active:text-green-400 hover:text-green-400 text-lg"><Link href='/Merch' onClick={() => setHiddenNav(!hiddenNav)}>Merch</Link></li>
-            <li className="font-medium active:text-green-400 py-2 px-4 text-green-400 border-green-400 border rounded-lg border-solid hover:text-green-400 text-lg"><Link href='/Contact' onClick={() => setHiddenNav(!hiddenNav)}>Join us</Link></li>
+            <li className="font-medium active:text-green-400 py-2 px-4 text-green-400 border-green-400 border rounded-lg border-solid hover:bg-green-400 hover:text-white text-lg"><Link href='/Contact' onClick={() => setHiddenNav(!hiddenNav)}>Join us</Link></li>
           </ul>
         </nav>
       </div>

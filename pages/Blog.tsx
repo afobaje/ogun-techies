@@ -13,9 +13,9 @@ const {news}=useContext(storeVault)
 
 
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col w-full '>
       <section className="banner relative">
-        <h1 className="text-3xl top-16  md:top-32  z-10 right-1/2  text-white md:right-2/4 font-bold absolute">
+        <h1 className="text-3xl top-8 md:top-32  z-10 right-1/2  text-white md:right-2/4 font-bold absolute">
           Blog
         </h1>
         <Image src={Banner} className='-z-10' alt='blog banner' />

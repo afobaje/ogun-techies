@@ -5,7 +5,7 @@ import Logo from "./../public/assets/Logofooter.svg";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col w-full md:h-[60vh] lg:h-[80vh]  bg-green-700  ">
+    <footer className="flex flex-col w-full md:h-[60vh] lg:h-[65vh]  bg-green-700  ">
       <section className="flex h-5/6 md:h-4/6 overflow-hidden md:flex-row flex-col w-full justify-between">
         <Link
           href="/"

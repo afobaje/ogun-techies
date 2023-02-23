@@ -13,7 +13,7 @@ import smallarc from './../public/assets/Unionsmall.svg'
 import Link from "next/link";
 
 
-export default function Home({ data }: any) {
+export default function Home() {
 
 
 
@@ -33,8 +33,8 @@ export default function Home({ data }: any) {
               <h1 className="lg:py-8 font-bold text-center sm:text-4xl sm:mx-0  mx-auto lg:text-5xl md:text-center lg:text-start text-2xl mt-4 lg:leading-tight md:text-4xl  mb-4 leading-snug md:leading-normal px-4 ">The Home of <br className="md:hidden lg:inline" /> Ogun's Tech <br /> Enthusiasts</h1>
               <p className="text-lg lg:py-3 sm:text-center mx-auto  lg:text-xl font-medium text-center lg:text-justify lg:mx-auto ">Rebuilding Ogun state through <br /> technology</p>
               <div className="buttongroup lg:py-3 sm:flex-col mx-auto  md:flex-row flex-col flex">
-                <Link href='/Member' className="py-4 px-6 sm:p-4  md:p-2  text-white md:mr-2 bg-green-400 border border-green-400 border-solid mt-4 rounded-lg">Become a member</Link>
-                <button className="py-4 px-6 sm:p-4 md:p-2  text-green-400 border border-green-400 border-solid mt-4  rounded-lg">Invite others</button>
+                <Link href='/Member' className="py-4 px-6 sm:p-4  md:p-2  text-white md:mr-2 bg-green-400 border border-green-400 border-solid mt-4 hover:border-green-300 hover:bg-green-300 rounded-lg">Become a member</Link>
+                <button className="py-4 px-6 sm:p-4 md:p-2  text-green-400 border hover:text-white hover:bg-green-400 border-green-400 border-solid mt-4  rounded-lg">Invite others</button>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function Home({ data }: any) {
           </div>
         </div>
       </section>
-      <section className="news flex flex-col lg:min-h-[90vh] px-10 bg-[#c2fcd4]">
+      <section className="news flex flex-col lg:min-h-[70vh] p-10  bg-[#c2fcd4]">
         <h2 className="md:pl-20 mx-auto text-2xl font-semibold pt-4 mb-8">
           Read our news
         </h2>
