@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function Content({ post }: any) {
-  let [item] = post
+export default function Content(
+  // { post }: any
+  ) {
+  // let [item] = post
   let article = useRef<HTMLDivElement>(null);
   let wpm = 255;
   let [readtime, setReadTime] = useState(0);
@@ -15,9 +17,9 @@ export default function Content({ post }: any) {
   }, [readtime,wpm])
 
   
-  function createMarkup() {
-    return { __html: item.content.rendered }
-  }
+  // function createMarkup() {
+  //   return { __html: item.content.rendered }
+  // }
 
   return (
     <div className="grid place-content-center h-[100vh] w-full">
