@@ -14,30 +14,30 @@ export default function Header() {
     }
   }, []);
 
-  const check=useCallback(()=>{
+  const check = useCallback(() => {
     if (window.pageYOffset > clientHeight) {
       setFixedHeader(true);
     } else {
       setFixedHeader(false);
     }
-  },[])
+  }, [])
 
-  
+
 
   useEffect(() => {
     window.addEventListener("scroll", check);
     return () => {
       window.removeEventListener("scroll", check);
     };
-  }, [fixedHeader, clientHeight,check]);
+  }, [fixedHeader, clientHeight, check]);
 
   return (
     <header className="block w-full ">
       <div
         ref={measuredRef}
-        className={`flex  px-7 justify-between duration-200 transition-all  ${fixedHeader
-          ? "fixed w-11/12  mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 shadow shadow-slate-300 bg-white rounded-full"
-          : "w-full py-6"
+        className={`flex justify-between duration-200 transition-all  ${fixedHeader
+          ? "fixed w-11/12  mx-auto items-center top-0 py-4 left-4 md:left-14 z-30 mt-2 px-7 shadow shadow-slate-300 bg-white rounded-full"
+          : "w-full px-12 py-6"
           } `}
       >
         <Link href="/" onClick={() => setHiddenNav(false)} className="logo w-2/5 md:w-1/5 text-2xl">

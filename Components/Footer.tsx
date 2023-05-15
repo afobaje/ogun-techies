@@ -11,7 +11,7 @@ export default function Footer() {
           href="/"
           className="logo h-3/6 justify-start items-center py-10 md:py-0 my-auto flex  flex-col md:ml-10"
         >
-          <Image src={Logo} alt="logo" />
+          <Image src={Logo} className='w-full' alt="logo" />
         </Link>
         <div className="footer-nav w-full mt-0 md:mt-10 md:flex-wrap  md:h-4/6 my-auto text-white lg:w-4/6 flex flex-col md:flex-row items-center justify-center md:justify-evenly">
           <ul className="flex px-4 flex-col md:h-full items-center md:items-start justify-evenly">
